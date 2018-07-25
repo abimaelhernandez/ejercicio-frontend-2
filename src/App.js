@@ -8,21 +8,17 @@ class App extends Component {
       list : []
     }
   }
-
-  //console.log('ive been cliked',item.id)
+//this deletes the user by using id of them
 deleteUser = (item) => {
+  console.log('this is the id',item.id);
   let {list} = this.state
   list.splice(item.id,1)
-  this.setState = {
-   list: list
-   }
-   console.log('help!!!', this.state.list);
-
-
-    //let removed = this.state.list.filter(item => item.id !==(query));
-    //return removed
+  this.setState({
+    list : list
+  })
+   console.log('help me delete!!!', this.state.list);
 }
-
+//initial state for the list
 componentDidMount(){
   this.setState({
     list: employees
@@ -30,6 +26,7 @@ componentDidMount(){
 }
 
   render() {
+    console.log('ive been cliked',this.state.list)
     return (
       <div id='employees'> Hello world
         <table>
