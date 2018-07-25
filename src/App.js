@@ -9,9 +9,10 @@ class App extends Component {
     }
   }
 
-deleteUser = () => {
-  console.log('hey D474 i was clicked ');
-
+deleteUser = (query) => {
+    let removed = this.state.list.filter(item => item.id !== {query} );
+    return removed
+    console.log('ive been cliked')
 }
 
 componentDidMount(){
@@ -24,21 +25,29 @@ componentDidMount(){
     let list = this.state.list
     console.log('hello',this.state.list)
     return (
-      <div id='employees' > Hello world
+      <div id='employees'> Hello world
         <table>
           <tbody>
             <tr>
-              <th>First Name</th>
-              <th>Last Name</th>
-              <th>Points</th>
+              <th>Age</th>
+              <th>Company</th>
+              <th>Email</th>
+              <th>Id</th>
+              <th>Name</th>
+              <th>Phone</th>
+              <th>Salary</th>
             </tr>
             {list.map(item => {
               return (
               <tr key={item.id}>
-                <td>{item.name}</td>
+                <td>{item.age}</td>
+                <td>{item.company}</td>
                 <td>{item.email}</td>
+                <td>{item.id}</td>
+                <td>{item.name}</td>
                 <td>{item.phone}</td>
-                <button onClick={this.deleteUser}>clik me!</button>
+                <td>{item.salary}</td>
+                <button onClick={this.deleteUser}>Delete user</button>
               </tr>
             )
             })}

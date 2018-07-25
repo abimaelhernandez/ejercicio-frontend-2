@@ -383,5 +383,8 @@ body {
     -webkit-text-fill-color: transparent; }
 
 /* Código de la tabla aquí */
+table , th , td {
+  border: 1px solid black;
+}
 
 /*# sourceMappingURL=main.css.map */
