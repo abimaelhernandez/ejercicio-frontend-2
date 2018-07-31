@@ -15,6 +15,7 @@
       <li>Agregar empleados (Un botón al principio o final de la tabla)</li>
       <li>Editar empleados (Un botón al principio o final de la tabla)</li>
       <li>El nombre de la empresa no se debe poder modificar</li>
+      /* done*/ 
       <li>Borrar empleados (Un botón de borrar por cada empleado)</li>
       <li>Agregar un botón que muestre los salarios en USD, tipo de cambio de US $1 = MXN $21.50 </li>
     </ul>

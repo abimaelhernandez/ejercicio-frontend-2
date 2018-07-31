@@ -386,12 +386,15 @@ body {
 table {
   border-collapse: collapse;
 }
+
 table , th , td {
   border: 1px solid black;
 }
 
-.delete{
-  color:red
+a.delete{
+  color:red;
+  border-collapse: collapse;
+
 }
 
 /*# sourceMappingURL=main.css.map */
