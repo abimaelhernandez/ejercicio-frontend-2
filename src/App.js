@@ -8,49 +8,50 @@ class App extends Component {
       list : []
     }
   }
-
-  //initial state for0 the listl
+  //initial state for list
   componentDidMount(){
-
     this.setState((state) => {
       //updatew salary in employee obj
       employees.forEach((employee, i ) => {
-
-        let result = this.numToMoney(employee.salary)
         //this.numToMoney(employees.salary)
-        //console.log('hola money',obj.salary)
+        let result = this.numToMoney(employee.salary)
         //set the employees prop on state to employeen obj
         employees[i].salary = result
-        //return state
       })
       state.list = employees
+      //return state
       return state
     })
-
   }
-
   //function for convert num to money
   numToMoney = (number) =>{
-    let str = number.toString()
+    //convert num to str step1
+    let str = number.toString();
+      //str to arr step2
+      let split = str.split('');
+        //add an element at the end step3
+        split.splice(-3, 0, ',');
+          // make a str again step4
+          let backToStr = split.join('');
+            //concat a $ sing in front and first decimal to end step5
+            let num = ('$' + backToStr + '.' );
+    // repeat step2
+    let firstO = num.split('');
+      // repeat step3 to add 0 at the end
+      firstO.splice(firstO.length,0,'0');
+        // repeat step4
+        let backFirst = firstO.join('');
+    //repeat step 2
+    let lastO = backFirst.split('');
+      // repeat step3
+      lastO.splice(lastO.length,0,'0')
+        //repeat step4
+        let interger = lastO.join('')
 
-    let split = str.split('')
-
-    split.splice(-3, 0, ',')
-
-    let backToStr = split.join('')
-
-    let num = ('$' + backToStr + '.' )
-    let firstO = num.split('')
-
-    firstO.splice(firstO.length,0,'0')
-
-    let backFirst = firstO.join('')
-    console.log(backFirst);
-    return backFirst
+    console.log(interger);
+    //return number
+    return interger
   }
-
-//numToMoney(16900)
-
 //this deletes the user by using id of them
 deleteUser = (item) => {
   console.log('this is the id',item.id);
@@ -64,21 +65,22 @@ deleteUser = (item) => {
 
   render() {
     return (
-      <div id='employees'> Hello world
+    <div id='employees'> Hello world
+      <div className="table">
         <table>
-        <tbody>
-          <tr>
-            <th>Age</th>
-            <th>Company</th>
-            <th>Email</th>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Phone</th>
-            <th>Salary</th>
-          </tr>
-          {this.state.list.map(item => {
-            return (
-          <tr key={item.id}>
+          <tbody>
+            <tr className="top_Row">
+              <th>Age</th>
+              <th>Company</th>
+              <th>Email</th>
+              <th>Id</th>
+              <th>Name</th>
+              <th>Phone</th>
+              <th>Salary</th>
+            </tr>
+              {this.state.list.map(item => {
+                return (
+            <tr className="bottom_Row" key={item.id}>
               <td>{item.age}</td>
               <td>{item.company}</td>
               <td>{item.email}</td>
@@ -87,12 +89,15 @@ deleteUser = (item) => {
               <td>{item.phone}</td>
               <td>{item.salary}</td>
               <a className="delete" onClick={this.deleteUser.bind(this,item)} href='#'>X</a>
-          </tr>
-    )
-    })}
-  </tbody>
-  </table>
+            </tr>
+              )
+            })}
+          </tbody>
+          <div className="table_Input">
+          </div>
+        </table>
       </div>
+    </div>
     )
   }
 }

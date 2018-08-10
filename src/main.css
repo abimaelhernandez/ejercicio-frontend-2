@@ -387,14 +387,16 @@ table {
   border-collapse: collapse;
 }
 
-table , th , td {
+th{
   border: 1px solid black;
 }
 
-a.delete{
-  color:red;
-  border-collapse: collapse;
+td {
+  border: 1px solid black;
+}
 
+a{
+  color:red;
 }
 
 /*# sourceMappingURL=main.css.map */
