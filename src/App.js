@@ -1,12 +1,13 @@
-import React, { Component } from 'react'
-import employees from './employees'
+import React, { Component } from 'react';
+import employees from './employees';
+import Filter from './filter.js';
 
 class App extends Component {
   constructor(props){
     super(props)
     this.state = {
       list : []
-    }
+    };
   }
   //initial state for list
   componentDidMount(){
@@ -23,6 +24,7 @@ class App extends Component {
       return state
     })
   }
+
   //function for convert num to money
   numToMoney = (number) =>{
     //convert num to str step1
@@ -52,21 +54,22 @@ class App extends Component {
     //return number
     return interger
   }
+
 //this deletes the user by using id of them
 deleteUser = (item) => {
   console.log('this is the id',item.id);
-  let {list} = this.state
-  list.splice(item.id,1)
+  let {list} = this.state;
+  list.splice(item.id,1);
   this.setState({
     list : list
-  })
+  });
    console.log('help me delete!!!', this.state.list);
 }
 
   render() {
+    const {list} = this.state
     return (
     <div id='employees'> Hello world
-      <div className="table">
         <table>
           <tbody>
             <tr className="top_Row">
@@ -93,11 +96,9 @@ deleteUser = (item) => {
               )
             })}
           </tbody>
-          <div className="table_Input">
-          </div>
         </table>
-      </div>
-    </div>
+        <Filter list={list}/>
+     </div>
     )
   }
 }
