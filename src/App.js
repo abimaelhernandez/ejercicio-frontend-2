@@ -63,7 +63,6 @@ deleteUser = (item) => {
   this.setState({
     list : list
   });
-   console.log('help me delete!!!', this.state.list);
 }
 
   render() {
