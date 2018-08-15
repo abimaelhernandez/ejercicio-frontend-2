@@ -6,7 +6,8 @@ class App extends Component {
   constructor(props){
     super(props)
     this.state = {
-      list : []
+      list : [],
+      add: ''
     };
   }
   //initial state for list
@@ -64,11 +65,22 @@ deleteUser = (item) => {
     list : list
   });
 }
+//to add user
+addUser = () => {
+  this.setState({
+      add : this.state.list
+  })
+  console.log('yessss!!! click ma agai');
+}
+//value of user
+update = (e) => {
+  this.setState({ add: e.target.value })
+}
 
   render() {
     const {list} = this.state
     return (
-    <div id='employees'> Hello world
+    <div id='employees'>
         <table>
           <tbody>
             <tr className="top_Row">
@@ -97,6 +109,16 @@ deleteUser = (item) => {
           </tbody>
         </table>
         <Filter list={list}/>
+        <input
+          onChange={this.update}
+          className="input_add_user"
+          type="text"
+          value={this.state.add}/>
+        <button
+          className="add_use_button"
+          onClick={this.addUser}
+          type="submit"
+          >agregar empleado</button>
      </div>
     )
   }
